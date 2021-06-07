@@ -26,10 +26,31 @@ def reveal_me():
     lblName.configure(text="Benjamin Benson")  # Name revealed
 
 
+# Starting up our textfield event
+def click_me():
+    text_action.configure(text="Hello " +
+                          name.get())  # Displaying the user's name
+
+
+# Setting our text label
+lblText = ttk.Label(window, text="Please enter a name")
+lblText.grid(column=0, row=2)
+
+# Adding the textbox widget
+name = tk.StringVar()
+user_name = ttk.Entry(window, width=14, textvariable=name)
+user_name.grid(column=0, row=3)
+user_name.focus() # Placing the cursor to focus on this textbox
+
 # Adding our button
 action = ttk.Button(window, text="Open Sesame!",
                     command=reveal_me)  # Activating the button
 action.grid(column=1, row=0)
+action.configure( state = "disabled" ) # Disabling the button
+
+# Adding our text button
+text_action = ttk.Button(window, text="Click to greet", command=click_me)
+text_action.grid(column=1, row=3)
 
 # Starting the GUI
 window.mainloop()
