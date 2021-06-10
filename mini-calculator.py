@@ -37,7 +37,8 @@ class OurWindow:
         self.btnAdd = Button(win, text="Add", command=self.add)
         self.btnAdd.place(x=100,
                           y=150)  # Setting the position for the Add button
-        self.btnSubtract = Button(win, text="Subtract", command=self.sub)
+        self.btnSubtract = Button(win, text="Subtract")
+        self.btnSubtract.bind( "<Button-2>", self.sub  )
         self.btnSubtract.place(
             x=200, y=150)  # Setting the position for the Subtract button
 
